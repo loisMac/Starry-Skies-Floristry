@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Starry Skies Floristry — Glasgow Wedding Florist</title>
+
+  <!-- --- Dark-mode flash prevention --- -->
+  <script>
+    (function() {
+      try {
+        const saved = localStorage.getItem('theme');
+        if (saved === 'dark') {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        } else if (saved === 'light') {
+          document.documentElement.setAttribute('data-theme', 'light');
+        }
+      } catch (e) {}
+    })();
+  </script>
+  <!-- --- End fix --- -->
+
+  <meta name="description" content="Starry Skies Floristry creates natural, romantic wedding flowers across Glasgow and beyond. Bouquets, buttonholes, installations, venue florals." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caudex:ital,wght@0,400;0,700;1,400;1,700&family=Dosis:wght@400;500;600&family=Gaegu:wght@400;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="base.css" />
+  <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <nav class="nav">
+      <a class="brand" href="index.html" aria-label="Starry Skies Floristry home">
+        <span class="brand-mark">✶</span> Starry Skies Floristry
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="navMenu" aria-label="Open menu">
+        <span class="nav-toggle-bar"></span>
+      </button>
+      <ul id="navMenu" class="nav-menu">
+        <li><a class="nav-link is-active" href="index.html">Home</a></li>
+        <li><a class="nav-link" href="about.html">About</a></li>
+        <li><a class="nav-link" href="weddings.html">Weddings</a></li>
+        <li><a class="nav-link" href="contact.html">Contact</a></li>
+        <li><a class="nav-link" href="shop.html">The Shop</a></li>
+        <li><button class="mode-toggle" id="modeToggle" aria-label="Toggle light and dark theme">☾</button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero container">
+        <div class="collage">
+          <img src="img/action-shot1.png" alt="Bridal bouquet with garden roses and eucalyptus">
+          <img src="img/arch-1.png" alt="Table meadow arrangement with seasonal flowers">
+          <img src="img/bouquet-1.png" alt="Buttonholes with silk ribbon">
+          <img src="img/bridal-party1.png" alt="Ceremony arch with romantic florals">
+          <img src="img/doggy-1.png" alt="Delicate bud vases on reception table">
+          <img src="img/happy-couple7.png" alt="Textural bouquet in pink and terracotta tones">
+        </div>
+      
+        <div class="intro">
+          <h1>weddings · events · editorial</h1>
+          <p>
+            get in touch if you’d like to chat about floral designs for your business, event, wedding or workshop —
+            we’re always happy to arrange a consultation and talk ideas.
+          </p>
+          <p>
+            you can find more info about <a href="weddings.html">wedding flowers here</a>.
+          </p>
+        </div>
+      </section>
+      
+
+    <section class="container highlight-grid">
+      <article class="card">
+        <img src="img/bouquet-2.png" alt="Hand-tied bridal bouquet">
+        <div class="card-body">
+          <h2>Bridal & Party Flowers</h2>
+          <p>Bridal bouquets, bridesmaids, buttonholes & corsages with considered textures and ribbons.</p>
+          <a class="text-link" href="contact.html">Ask about availability →</a>
+        </div>
+      </article>
+      <article class="card">
+        <img src="img/arch-1.png" alt="Floral arch installation">
+        <div class="card-body">
+          <h2>Installations</h2>
+          <p>Ceremony arches, meadows and statement moments designed for your space and vibe.</p>
+          <a class="text-link" href="contact.html">Get a rough guide →</a>
+        </div>
+      </article>
+      <article class="card">
+        <img src="img/table-piece1.png" alt="Table flowers with candles">
+        <div class="card-body">
+          <h2>Tables & Styling</h2>
+          <p>From bud vases to full runners — cohesive tablescapes with vases, candles and linens.</p>
+          <a class="text-link" href="about.html">See our approach →</a>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer container">
+    <p>© <span id="year"></span> Starry Skies Floristry · Glasgow</p>
+    <p class="small">Wedding floristry by Becky. Retail flowers at <a href="https://starryskiesshop.co.uk/" target="_blank" rel="noopener">Starry Skies (Battlefield)</a>.</p>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Starry Skies Floristry</title>
+      
+        <!-- --- Dark-mode flash prevention --- -->
+        <script>
+          (function() {
+            try {
+              const saved = localStorage.getItem('theme');
+              if (saved === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'dark');
+              } else if (saved === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+              }
+            } catch (e) {}
+          })();
+        </script>
+        <!-- --- End fix --- -->
+      
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Caudex:ital,wght@0,400;0,700;1,400;1,700&family=Dosis:wght@400;500;600&family=Gaegu:wght@400;700&display=swap" rel="stylesheet">
+        
+        <link rel="stylesheet" href="base.css" />
+        <!-- then your page-specific CSS -->
+        <link rel="stylesheet" href="weddings.css" />
+      </head>
+      
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav">
+      <a class="brand" href="index.html"><span class="brand-mark">✶</span> Starry Skies Floristry</a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="navMenu" aria-label="Open menu">
+        <span class="nav-toggle-bar"></span>
+      </button>
+      <ul id="navMenu" class="nav-menu">
+        <li><a class="nav-link" href="index.html">Home</a></li>
+        <li><a class="nav-link" href="about.html">About</a></li>
+        <li><a class="nav-link is-active" href="weddings.html">Weddings</a></li>
+        <li><a class="nav-link" href="contact.html">Contact</a></li>
+        <li><a class="nav-link" href="shop.html">The Shop</a></li>
+        <li><button class="mode-toggle" id="modeToggle" aria-label="Toggle light and dark theme">☾</button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main" class="container">
+    <section class="weddings-hero">
+      <h1>Weddings with Starry Skies</h1>
+      <p>
+        Every couple’s story is unique, and your flowers should be too.
+        We design relaxed, natural arrangements that complement your venue and atmosphere — always thoughtful, never overdone.
+      </p>
+    </section>
+
+    <!-- Slideshow -->
+    <section class="slideshow" aria-label="Wedding floral gallery">
+      <div class="slides">
+        <img src="img/bouquet-3.png" alt="Ceremony arch with romantic blooms" class="active">
+        <img src="img/bride-2.png" alt="Bridal bouquet with soft tones">
+        <img src="img/doggy-1.png" alt="Table flowers with candles">
+        <img src="img/happy-couple8.png" alt="Wild garden-inspired arrangement">
+        <img src="img/happy-couple4.png" alt="Floral installation at reception venue">
+      </div>
+
+      <button class="slide-btn prev" aria-label="Previous slide">‹</button>
+      <button class="slide-btn next" aria-label="Next slide">›</button>
+
+      <div class="dots"></div>
+    </section>
+
+    <section class="weddings-copy">
+      <h2>How it works</h2>
+      <ol>
+        <li><strong>Get in touch</strong> — share your date, venue and ideas through our <a href="contact.html">enquiry form</a>.</li>
+        <li><strong>Receive a guide</strong> — we’ll send you an initial quote and suggestions to suit your vibe.</li>
+        <li><strong>Design & plan</strong> — we collaborate on palettes, textures and key installations.</li>
+        <li><strong>The big day</strong> — we handle delivery, set-up and styling so you can relax.</li>
+      </ol>
+
+      <p class="cta">
+        <a class="btn" href="contact.html">Enquire about your wedding</a>
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer container">
+    <p>© <span id="year"></span> Starry Skies Floristry · Glasgow</p>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

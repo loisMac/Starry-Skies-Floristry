@@ -1,0 +1,231 @@
+:root {
+    --bg: #e7b29a;            /* warm light pink/terracotta tint */
+    --paper: #feefe3;
+    --ink: #2f4150;
+    --muted: #6f91a7;
+    --accent: #a05f4e;        /* terracotta */
+    --accent-2: #596952;      /* sage green for secondary */
+    --line: #e2d6cf;
+    --shadow: 0 6px 28px rgba(47, 65, 80, 0.08);
+    --radius: 14px;
+  }
+  
+  html[data-theme="dark"] {
+    --bg: #1f1e1d;
+    --paper: #2a2726;
+    --ink: #e9e4de;
+    --muted: #b6c7d1;
+    --accent: #cf8c7a;
+    --accent-2: #9bb39a;
+    --line: #3b3532;
+    --shadow: 0 6px 28px rgba(0,0,0,0.35);
+  }
+  
+  * { box-sizing: border-box; }
+  
+  html, body {
+    height: 100%;
+  }
+  
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+  }
+
+  /* -----------------------------------------------------
+   Global Headings (now using Caudex)
+   ----------------------------------------------------- */
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Caudex", serif;
+    font-weight: 700;
+    font-style: normal;
+    color: var(--ink);
+    line-height: 1.25;
+    margin-top: 0;
+  }
+  
+  
+  img { max-width: 100%; display: block; border-radius: 12px; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  
+  .container {
+    width: min(1120px, 92vw);
+    margin: 0 auto;
+    padding: 24px 0;
+  }
+  
+  /* Skip link */
+  .skip-link {
+    position: absolute; left: -9999px; top: auto;
+  }
+  .skip-link:focus {
+    left: 12px; top: 12px; background: var(--paper); color: var(--ink);
+    padding: 8px 12px; border-radius: 8px; box-shadow: var(--shadow);
+  }
+  
+  /* Header / Nav */
+  .site-header {
+    position: sticky; top: 0; z-index: 1000;
+    background: color-mix(in lab, var(--bg) 90%, var(--paper));
+    border-bottom: 1px solid var(--line);
+    backdrop-filter: blur(6px);
+  }
+  .nav {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 12px; padding: 10px 0;
+    margin: 0px 20px;
+  }
+  .brand {
+    font-family: "Gaegu", cursive;
+    font-weight: 700; font-size: 1.3rem; color: var(--ink);
+    display: inline-flex; gap: 8px; align-items: center;
+  }
+  .brand-mark { font-size: 1.2rem; color: var(--accent); }
+  
+  .nav-menu {
+    display: flex; gap: 10px; align-items: center;
+    list-style: none; margin: 0; padding: 0;
+  }
+  .nav-link {
+    padding: 8px 12px; border-radius: 10px;
+    color: var(--ink);
+  }
+  .nav-link.is-active { background: var(--paper); box-shadow: var(--shadow); }
+  
+  .mode-toggle {
+    border: 1px solid var(--line);
+    background: var(--paper);
+    color: var(--ink);
+    padding: 6px 10px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  
+  /* Mobile nav toggle */
+  .nav-toggle { display: none; background: transparent; border: 0; padding: 8px; }
+  .nav-toggle-bar {
+    display: block; width: 24px; height: 2px; background: var(--ink);
+    position: relative; border-radius: 2px;
+  }
+  .nav-toggle-bar::before, .nav-toggle-bar::after {
+    content: ""; position: absolute; left: 0; right: 0; height: 2px; background: var(--ink);
+  }
+  .nav-toggle-bar::before { top: -6px; }
+  .nav-toggle-bar::after { top: 6px; }
+  
+  /* Buttons */
+  .btn {
+    display: inline-block;
+    padding: 12px 20px;
+    border-radius: 999px;
+    background: var(--accent);
+    color: #fff;
+    font-weight: 600;
+    box-shadow: var(--shadow);
+    border: 1px solid color-mix(in lab, var(--accent) 80%, #000);
+  }
+  .btn:hover { transform: translateY(-1px); }
+  .btn:active { transform: translateY(0); }
+  .btn-secondary {
+    background: var(--accent-2);
+    border-color: color-mix(in lab, var(--accent-2) 80%, #000);
+  }
+  .text-link { font-weight: 600; }
+  
+  /* Footer */
+  .site-footer {
+    border-top: 1px solid var(--line);
+    margin-top: 40px; padding-top: 24px; padding-bottom: 40px;
+    color: color-mix(in lab, var(--ink) 80%, var(--muted));
+  }
+  .small { font-size: 0.92rem; color: var(--muted); }
+  
+  /* Utilities */
+  .ticks { list-style: none; padding: 0; margin: 12px 0 0; }
+  .ticks li { padding-left: 26px; position: relative; }
+  .ticks li::before {
+    content: "✓"; position: absolute; left: 0; top: 0; color: var(--accent-2);
+    font-weight: 700;
+  }
+  
+  /* Responsive */
+  @media (max-width: 900px) {
+    .nav-toggle { display: inline-block; }
+    .nav-menu {
+      position: absolute; right: 16px; top: 60px;
+      flex-direction: column; align-items: flex-start;
+      background: var(--paper); border: 1px solid var(--line);
+      border-radius: 12px; padding: 10px; display: none; min-width: 200px;
+    }
+    .nav-menu.open { display: flex; box-shadow: var(--shadow); }
+  }
+  
+  /* same base as before — below are the only additions and tweaks for full responsiveness */
+
+.container {
+    width: min(1120px, 92vw);
+    margin: 0 auto;
+    padding: 24px 4vw;
+  }
+  
+  /* Responsive typography */
+  h1, h2, h3, h4 {
+    line-height: 1.2;
+    word-break: keep-all;
+  }
+  
+  /* Ensure images are not cut on mobile */
+  img, iframe {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Improve nav on mobile/tablet */
+  @media (max-width: 900px) {
+    .nav-menu {
+      right: 16px; top: 60px;
+      flex-direction: column;
+      align-items: flex-start;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 12px;
+      display: none;
+      min-width: 200px;
+    }
+    .nav-menu.open { display: flex; box-shadow: var(--shadow); }
+    .nav-link { width: 100%; padding: 10px 8px; }
+  }
+  
+
+  /* -----------------------------------------------------
+   Caudex Font Utilities
+   ----------------------------------------------------- */
+.caudex-regular {
+    font-family: "Caudex", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .caudex-bold {
+    font-family: "Caudex", serif;
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+  .caudex-regular-italic {
+    font-family: "Caudex", serif;
+    font-weight: 400;
+    font-style: italic;
+  }
+  
+  .caudex-bold-italic {
+    font-family: "Caudex", serif;
+    font-weight: 700;
+    font-style: italic;
+  }
+  

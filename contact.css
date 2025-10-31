@@ -1,0 +1,61 @@
+.contact-intro { padding-top: 16px; }
+.contact-intro h1 {
+    font-family: "Caudex", serif;
+  font-size: clamp(1.6rem, 2vw + 1rem, 2.2rem);
+  margin: 0 0 8px;
+}
+
+.contact-form {
+  margin-top: 12px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 18px;
+  box-shadow: var(--shadow);
+}
+
+.field { margin-bottom: 14px; }
+.field label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 6px;
+  letter-spacing: 0.02em;
+}
+
+input, textarea, select {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fff;
+  color: #222;
+  font-family: inherit;
+  font-size: 1rem;
+  transition: background-color .3s, color .3s, border-color .3s;
+}
+
+html[data-theme="dark"] input,
+html[data-theme="dark"] textarea,
+html[data-theme="dark"] select {
+  background: #1c1a19;
+  color: var(--ink);
+  border-color: #3a3330;
+}
+
+input:focus, textarea:focus, select:focus { outline: 2px solid color-mix(in lab, var(--accent) 50%, transparent); }
+
+.two-col {
+  display: grid; gap: 12px;
+  grid-template-columns: 1fr 1fr;
+}
+
+details summary {
+  cursor: pointer;
+  font-weight: 600;
+  list-style: none;
+}
+details summary::-webkit-details-marker { display: none; }
+
+@media (max-width: 760px) {
+  .two-col { grid-template-columns: 1fr; }
+}

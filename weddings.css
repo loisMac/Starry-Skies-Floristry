@@ -1,0 +1,180 @@
+/* -----------------------------------------------------
+   Weddings Page Styles — Starry Skies Floristry
+   ----------------------------------------------------- */
+
+   .weddings-hero {
+    text-align: center;
+    padding-top: 20px;
+    max-width: 680px;
+    margin: 0 auto;
+  }
+  
+  .weddings-hero h1 {
+    font-family: "Caudex", serif;
+    font-size: clamp(1.8rem, 2.4vw + 1rem, 2.6rem);
+    margin-bottom: 6px;
+  }
+  
+  /* -----------------------------------------------------
+     SLIDESHOW
+     ----------------------------------------------------- */
+  
+  .slideshow {
+    position: relative;
+    margin: 28px auto;
+    max-width: 900px;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    aspect-ratio: 16 / 9; /* ✅ keeps a consistent height */
+    background: var(--paper);
+  }
+  
+  .slides {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+  
+  .slides img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* ✅ no stretching, crops instead */
+    opacity: 0;
+    transition: opacity 0.6s ease-in-out;
+  }
+  
+  .slides img.active {
+    opacity: 1;
+    z-index: 2;
+  }
+  
+  /* Slideshow Buttons */
+  .slide-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    border: none;
+    background: rgba(255, 255, 255, 0.6);
+    color: var(--ink);
+    cursor: pointer;
+    padding: 4px 10px;
+    border-radius: 50%;
+    backdrop-filter: blur(3px);
+    transition: background 0.3s;
+    z-index: 3;
+  }
+  
+  .slide-btn:hover {
+    background: rgba(255, 255, 255, 0.9);
+  }
+  
+  .slide-btn.prev {
+    left: 10px;
+  }
+  
+  .slide-btn.next {
+    right: 10px;
+  }
+  
+  /* Slideshow Dots */
+  .dots {
+    text-align: center;
+    padding: 10px 0;
+    background: var(--paper);
+  }
+  
+  .dots button {
+    height: 12px;
+    width: 12px;
+    margin: 4px;
+    border-radius: 50%;
+    border: 1px solid var(--accent);
+    background: transparent;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .dots button.active {
+    background: var(--accent);
+  }
+  
+  /* -----------------------------------------------------
+     CONTENT BELOW SLIDESHOW
+     ----------------------------------------------------- */
+  
+  .weddings-copy {
+    max-width: 800px;
+    margin: 0 auto;
+    padding-top: 10px;
+  }
+  
+  .weddings-copy h2 {
+    font-family: "Gaegu", cursive;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+  }
+  
+  .weddings-copy ol {
+    line-height: 1.7;
+    margin-left: 20px;
+  }
+  
+  .weddings-copy ol li {
+    margin-bottom: 8px;
+  }
+  
+  .weddings-copy .cta {
+    text-align: center;
+    margin-top: 22px;
+  }
+  
+  /* -----------------------------------------------------
+     RESPONSIVE DESIGN
+     ----------------------------------------------------- */
+  
+  @media (max-width: 900px) {
+    .slide-btn {
+      font-size: 1.6rem;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .slideshow {
+      max-width: 100%;
+      aspect-ratio: 1 / 1; /* ✅ square on mobile for better composition */
+    }
+  
+    .slide-btn.prev {
+      left: 6px;
+    }
+  
+    .slide-btn.next {
+      right: 6px;
+    }
+  
+    .weddings-copy {
+      padding: 0 10px;
+    }
+  }
+  
+  /* -----------------------------------------------------
+     DARK MODE COMPATIBILITY
+     ----------------------------------------------------- */
+  
+  html[data-theme="dark"] .slide-btn {
+    background: rgba(0, 0, 0, 0.4);
+    color: var(--ink);
+  }
+  
+  html[data-theme="dark"] .slide-btn:hover {
+    background: rgba(0, 0, 0, 0.7);
+  }
+  
+  html[data-theme="dark"] .dots {
+    background: var(--paper);
+  }
+  
