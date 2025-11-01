@@ -11,8 +11,8 @@
   }
   
   html[data-theme="dark"] {
-    --bg: #1f1e1d;
-    --paper: #2a2726;
+    --bg: #553d32;
+    --paper: #2d1a1d;
     --ink: #e9e4de;
     --muted: #b6c7d1;
     --accent: #cf8c7a;
@@ -236,5 +236,20 @@ max-width: 200px;
     font-family: "Caudex", serif;
     font-weight: 700;
     font-style: italic;
+  }
+  
+  /* -----------------------------------------------------
+   Page Fade-In Animation
+   ----------------------------------------------------- */
+
+body {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  
+  body.page-loaded {
+    opacity: 1;
+    transform: translateY(0);
   }
   

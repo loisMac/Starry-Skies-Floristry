@@ -5,21 +5,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Starry Skies Floristry</title>
       
-        <!-- --- Dark-mode flash prevention --- -->
-        <script>
-          (function() {
-            try {
-              const saved = localStorage.getItem('theme');
-              if (saved === 'dark') {
-                document.documentElement.setAttribute('data-theme', 'dark');
-              } else if (saved === 'light') {
-                document.documentElement.setAttribute('data-theme', 'light');
-              }
-            } catch (e) {}
-          })();
-        </script>
-        <!-- --- End fix --- -->
-      
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Caudex:ital,wght@0,400;0,700;1,400;1,700&family=Dosis:wght@400;500;600&family=Gaegu:wght@400;700&display=swap" rel="stylesheet">
@@ -27,13 +12,22 @@
         <link rel="stylesheet" href="base.css" />
         <!-- then your page-specific CSS -->
         <link rel="stylesheet" href="weddings.css" />
+        <script>
+            window.addEventListener("load", () => {
+              document.body.classList.add("page-loaded");
+            });
+          </script>
+          
       </head>
       
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
     <nav class="nav">
-      <a class="brand" href="index.html"><span class="brand-mark">✶</span> Starry Skies Floristry</a>
+        <a href="index.html" class="logo-link" aria-label="Starry Skies Floristry home">
+            <img src="img/logo.png" alt="Starry Skies Floristry logo" class="logo">
+          </a>
+          
       <button class="nav-toggle" aria-expanded="false" aria-controls="navMenu" aria-label="Open menu">
         <span class="nav-toggle-bar"></span>
       </button>
@@ -42,8 +36,9 @@
         <li><a class="nav-link" href="about.html">About</a></li>
         <li><a class="nav-link is-active" href="weddings.html">Weddings</a></li>
         <li><a class="nav-link" href="contact.html">Contact</a></li>
+        <li><a class="nav-link" href ="testimonials.html">Testimonials</a></li>
         <li><a class="nav-link" href="shop.html">The Shop</a></li>
-        <li><button class="mode-toggle" id="modeToggle" aria-label="Toggle light and dark theme">☾</button></li>
+        
       </ul>
     </nav>
   </header>
