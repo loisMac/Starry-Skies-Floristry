@@ -242,9 +242,9 @@ h1, h2, h3, h4, h5, h6 {
       position: absolute;
       top: 70px;
       right: 24px;
-      background: color-mix(in srgb, var(--paper) 85%, var(--bg) 15%);
-      border: 1px solid color-mix(in srgb, var(--line) 80%, var(--bg) 20%);
-      border-radius: var(--radius);
+      background: transparent;
+      border: none;
+     
       padding: 38px 30px;
       box-shadow: 0 8px 30px rgba(47, 65, 80, 0.08);
       min-width: 240px;
