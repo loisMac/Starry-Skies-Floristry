@@ -25,23 +25,23 @@
 
   <header class="site-header">
     <nav class="nav">
+        <button class="nav-toggle" aria-expanded="false" aria-controls="navMenu" aria-label="Open menu">
+          <span class="nav-toggle-bar"></span>
+        </button>
+      
         <a href="index.html" class="logo-link" aria-label="Starry Skies Floristry home">
-            <img src="img/logo.png" alt="Starry Skies Floristry logo" class="logo">
-          </a>
-          
-      <button class="nav-toggle" aria-expanded="false" aria-controls="navMenu" aria-label="Open menu">
-        <span class="nav-toggle-bar"></span>
-      </button>
-      <ul id="navMenu" class="nav-menu">
-        <li><a class="nav-link is-active" href="index.html">Home</a></li>
-        <li><a class="nav-link" href="about.html">About</a></li>
-        <li><a class="nav-link" href="weddings.html">Weddings</a></li>
-        <li><a class="nav-link" href="contact.html">Contact</a></li>
-        <li><a class="nav-link" href ="testimonials.html">Testimonials</a></li>
-        <li><a class="nav-link" href="shop.html">The Shop</a></li>
-       
-      </ul>
-    </nav>
+          <img src="img/logo.png" alt="Starry Skies Floristry logo" class="logo">
+        </a>
+      
+        <ul id="navMenu" class="nav-menu">
+          <li><a class="nav-link is-active" href="index.html">Home</a></li>
+          <li><a class="nav-link" href="about.html">About</a></li>
+          <li><a class="nav-link" href="weddings.html">Weddings</a></li>
+          <li><a class="nav-link" href="contact.html">Contact</a></li>
+          <li><a class="nav-link" href="testimonials.html">Testimonials</a></li>
+          <li><a class="nav-link" href="shop.html">The Shop</a></li>
+        </ul>
+      </nav>
   </header>
 
   <main id="main">
@@ -102,6 +102,34 @@
     <p class="small">Website built by <a href="https://loismakeswebsites.co.uk" target="_blank">loismakeswebsites</a>.</p>
   </footer>
 
-  <script src="script.js" defer></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const yearEl = document.getElementById('year');
+      if (yearEl) yearEl.textContent = new Date().getFullYear();
+    
+      const navToggle = document.querySelector('.nav-toggle');
+      const navMenu = document.getElementById('navMenu');
+    
+      if (navToggle && navMenu) {
+        navToggle.addEventListener('click', (e) => {
+          e.stopPropagation(); // prevent immediate close when toggling
+          const open = navMenu.classList.toggle('open');
+          navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+    
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+          const isClickInsideMenu = navMenu.contains(e.target);
+          const isClickOnToggle = navToggle.contains(e.target);
+          if (!isClickInsideMenu && !isClickOnToggle) {
+            navMenu.classList.remove('open');
+            navToggle.setAttribute('aria-expanded', 'false');
+          }
+        });
+      }
+    });
+    </script>
+    
 </body>
 </html>

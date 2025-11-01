@@ -3,11 +3,12 @@
    ----------------------------------------------------- */
 
    .hero {
+
     display: grid;
     grid-template-columns: 1.1fr 1fr;
     gap: 28px;
     align-items: center;
-    padding-top: 24px;
+    padding-top: 64px;
   }
   
   /* Collage layout */

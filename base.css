@@ -69,61 +69,126 @@ h1, h2, h3, h4, h5, h6 {
   
   /* Header / Nav */
   .site-header {
-    position: sticky; top: 0; z-index: 1000;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
     background: color-mix(in lab, var(--bg) 90%, var(--paper));
     border-bottom: 1px solid var(--line);
     backdrop-filter: blur(6px);
   }
+  
+  /* Base nav layout */
   .nav {
-    display: flex; align-items: center; justify-content: space-between;
-    gap: 12px; padding: 10px 0;
-    margin: 0px 20px;
-  }
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 100px 40px;
 
+  }
+  
+  /* Logo centered (desktop) */
+  .logo-link {
+    position: absolute;
+   
+  }
+  
   .logo {
-max-width: 200px;
-transition: ease-in-out 0.3s;
-}
-
-.logo:hover { transform:scale(1.03);}
-
-  .brand {
-    font-family: "Gaegu", cursive;
-    font-weight: 700; font-size: 1.3rem; color: var(--ink);
-    display: inline-flex; gap: 8px; align-items: center;
+    max-width: 180px;
   }
-  .brand-mark { font-size: 1.2rem; color: var(--accent); }
   
+  
+  /* Menu layout */
   .nav-menu {
-    display: flex; gap: 10px; align-items: center;
-    list-style: none; margin: 0; padding: 0;
-  }
-  .nav-link {
-    padding: 8px 12px; border-radius: 10px;
-    color: var(--ink);
-  }
-  .nav-link.is-active { background: var(--paper); box-shadow: var(--shadow); }
-  
-  .mode-toggle {
-    border: 1px solid var(--line);
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    list-style: none;
     background: var(--paper);
-    color: var(--ink);
-    padding: 6px 10px;
-    border-radius: 999px;
-    cursor: pointer;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 12px;
+    position: absolute;
+    top: 60px;
+    right: 24px;
+    box-shadow: var(--shadow);
+    min-width: 220px;
+    min-height: 100px;
+    z-index: 100;
   }
   
-  /* Mobile nav toggle */
-  .nav-toggle { display: none; background: transparent; border: 0; padding: 8px; }
+  .nav-menu.open {
+    display: flex;
+  }
+  
+  .nav-link {
+    padding: 10px 12px;
+    border-radius: 8px;
+    color: var(--ink);
+    font-weight: 500;
+    width: 100%;
+  }
+  
+  .nav-link:hover {
+    background: var(--paper);
+    text-decoration: none;
+  }
+  
+  .nav-link.is-active {
+    background: var(--paper);
+    box-shadow: var(--shadow);
+  }
+  
+  /* Toggle button */
+  .nav-toggle {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    left: 24px;
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background 0.25s ease;
+  }
+  
+  .nav-toggle:hover {
+    background: color-mix(in srgb, var(--paper) 80%, transparent);
+  }
+  
   .nav-toggle-bar {
-    display: block; width: 24px; height: 2px; background: var(--ink);
-    position: relative; border-radius: 2px;
+    width: 24px;
+    height: 2px;
+    background: var(--ink);
+    position: relative;
+    border-radius: 2px;
+    transition: transform 0.3s ease;
   }
-  .nav-toggle-bar::before, .nav-toggle-bar::after {
-    content: ""; position: absolute; left: 0; right: 0; height: 2px; background: var(--ink);
+  
+  .nav-toggle-bar::before,
+  .nav-toggle-bar::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--ink);
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
   }
-  .nav-toggle-bar::before { top: -6px; }
-  .nav-toggle-bar::after { top: 6px; }
+  
+  .nav-toggle-bar::before {
+    top: -7px;
+  }
+  
+  .nav-toggle-bar::after {
+    top: 7px;
+  }
+  
+  
   
   /* Buttons */
   .btn {
@@ -161,20 +226,56 @@ transition: ease-in-out 0.3s;
   }
   
   /* Responsive */
-  @media (max-width: 900px) {
-    .nav-toggle { display: inline-block; }
-    .nav-menu {
-      position: absolute; right: 16px; top: 60px;
-      flex-direction: column; align-items: flex-start;
-      background: var(--paper); border: 1px solid var(--line);
-      border-radius: 12px; padding: 10px; display: none; min-width: 200px;
+  @media (min-width: 901px) {
+    .nav {
+      justify-content: space-between;
+      padding: 100px 40px;
     }
-    .nav-menu.open { display: flex; box-shadow: var(--shadow); }
-
+  
+    .nav-toggle {
+      left: auto;
+      right: 24px;
+    }
+  
+    .nav-menu {
+      display: none;
+      position: absolute;
+      top: 70px;
+      right: 24px;
+      background: color-mix(in srgb, var(--paper) 85%, var(--bg) 15%);
+      border: 1px solid color-mix(in srgb, var(--line) 80%, var(--bg) 20%);
+      border-radius: var(--radius);
+      padding: 38px 30px;
+      box-shadow: 0 8px 30px rgba(47, 65, 80, 0.08);
+      min-width: 240px;
+      z-index: 100;
+      backdrop-filter: blur(6px);
+      animation: dropdownFade 0.25s ease forwards;
+    }
+  
+    @keyframes dropdownFade {
+      from { opacity: 0; transform: translateY(-5px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  
+    .logo-link {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  
     .logo {
-        max-width: 100px;
+      max-width: 180px;
+      transition: transform 0.35s ease, filter 0.35s ease;
+    }
+  
+    .logo:hover {
+      transform: scale(1.05);
+      filter: brightness(1.05);
     }
   }
+  
+  
   
   /* same base as before — below are the only additions and tweaks for full responsiveness */
 
@@ -198,19 +299,23 @@ transition: ease-in-out 0.3s;
   
   /* Improve nav on mobile/tablet */
   @media (max-width: 900px) {
-    .nav-menu {
-      right: 16px; top: 60px;
-      flex-direction: column;
-      align-items: flex-start;
-      background: var(--paper);
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      padding: 12px;
-      display: none;
-      min-width: 200px;
+    .nav {
+      justify-content: flex-start;
     }
-    .nav-menu.open { display: flex; box-shadow: var(--shadow); }
-    .nav-link { width: 100%; padding: 10px 8px; }
+  
+    .logo-link {
+      position: static;
+      transform: none;
+    }
+  
+    .logo {
+      max-width: 120px;
+    }
+  
+    .nav-toggle {
+      left: auto;
+      right: 16px;
+    }
   }
   
 
