@@ -59,3 +59,71 @@ details summary::-webkit-details-marker { display: none; }
 @media (max-width: 760px) {
   .two-col { grid-template-columns: 1fr; }
 }
+
+
+/* -----------------------------------------------------
+   Connect Section
+----------------------------------------------------- */
+
+.contact-connect {
+    text-align: center;
+    margin-top: 60px;
+    padding-bottom: 60px;
+  }
+  
+  .contact-connect h2 {
+    font-family: "Caudex", serif;
+    font-weight: 700;
+    font-size: clamp(1.4rem, 1.8vw + 1rem, 1.8rem);
+    margin-bottom: 10px;
+  }
+  
+  .contact-connect p {
+    font-size: 1.05rem;
+    color: var(--ink);
+    margin-bottom: 28px;
+  }
+  
+  .connect-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .social-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--accent);
+    color: #fff;
+    font-weight: 600;
+    border-radius: 40px;
+    padding: 12px 24px;
+    text-decoration: none;
+    transition: transform 0.25s ease, background 0.25s ease;
+  }
+  
+  .social-btn:hover {
+    transform: translateY(-2px);
+    background: color-mix(in srgb, var(--accent) 85%, white 15%);
+  }
+  
+  .social-btn img {
+    height: 20px;
+    width: 20px;
+  }
+  
+  @media (max-width: 600px) {
+    .connect-links {
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+    }
+  
+    .social-btn {
+      width: 85%;
+      justify-content: center;
+    }
+  }
+  
