@@ -113,18 +113,20 @@
   }
   
   .weddings-copy h2 {
-    font-family: "Gaegu", cursive;
+    text-align: center;
     font-size: 1.8rem;
     margin-bottom: 10px;
   }
   
   .weddings-copy ol {
+    text-align: center;
     line-height: 1.7;
     margin-left: 20px;
   }
   
   .weddings-copy ol li {
     margin-bottom: 8px;
+    list-style: none;
   }
   
   .weddings-copy .cta {
