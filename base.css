@@ -104,8 +104,10 @@ h1, h2, h3, h4, h5, h6 {
     flex-direction: column;
     align-items: flex-start;
     list-style: none;
-    background: transparent;
-    border: none;
+    background: color-mix(in srgb, var(--paper) 85%, var(--bg) 45%);
+    border-top: 1px solid color-mix(in srgb, var(--line) 70%, var(--bg) 30%);
+    box-shadow: 0 8px 30px rgba(47, 65, 80, 0.1);
+    border-radius: 0 0 var(--radius) var(--radius);
     padding: 12px;
     position: absolute;
     top: 60px;
@@ -241,11 +243,13 @@ h1, h2, h3, h4, h5, h6 {
       position: absolute;
       top: 70px;
       right: 24px;
-      background: transparent;
-      border: none;
-     
+   
+      background: color-mix(in srgb, var(--paper) 85%, var(--bg) 15%);
+        
+        box-shadow: 0 8px 30px rgba(47, 65, 80, 0.1);
+        border-radius: 0 0 var(--radius) var(--radius);
       padding: 38px 30px;
-      box-shadow: 0 8px 30px rgba(47, 65, 80, 0.08);
+
       min-width: 240px;
       z-index: 100;
       backdrop-filter: blur(6px);
@@ -299,9 +303,13 @@ h1, h2, h3, h4, h5, h6 {
   /* Improve nav on mobile/tablet */
   @media (max-width: 900px) {
     .nav {
-      justify-content: center;
-      padding: 40px 40px;
-    }
+        position: relative;
+        z-index: 1000;
+        padding: 40px 40px;
+        justify-content: center;
+        align-items: center;
+      }
+      
   
     .logo-link {
       position: static;
@@ -316,6 +324,48 @@ h1, h2, h3, h4, h5, h6 {
       left: auto;
       right: 16px;
     }
+
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        list-style: none;
+        position: absolute;
+        top: 100%; /* drops it below the navbar */
+        left: 0;
+        right: 0;
+        background: color-mix(in srgb, var(--paper) 85%, var(--bg) 15%);
+        border-top: 1px solid color-mix(in srgb, var(--line) 70%, var(--bg) 30%);
+        box-shadow: 0 8px 30px rgba(47, 65, 80, 0.1);
+        border-radius: 0 0 var(--radius) var(--radius);
+        padding: 20px 0;
+        z-index: 999;
+        animation: dropdownFade 0.25s ease forwards;
+        backdrop-filter: blur(6px);
+      }
+      
+      .nav-menu.open {
+        display: flex;
+      }
+      
+      .nav-link {
+        width: 100%;
+        text-align: center;
+        padding: 12px 20px;
+        color: var(--ink);
+        font-weight: 500;
+      }
+      
+      .nav-link:hover {
+        background: color-mix(in srgb, var(--paper) 90%, var(--bg) 10%);
+        text-decoration: none;
+      }
+      
+      @keyframes dropdownFade {
+        from { opacity: 0; transform: translateY(-6px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      
   }
   
 
