@@ -79,6 +79,11 @@ h1, h2, h3, h4, h5, h6 {
     gap: 12px; padding: 10px 0;
     margin: 0px 20px;
   }
+
+  .logo {
+max-width: 200px;
+  }
+
   .brand {
     font-family: "Gaegu", cursive;
     font-weight: 700; font-size: 1.3rem; color: var(--ink);
@@ -162,6 +167,10 @@ h1, h2, h3, h4, h5, h6 {
       border-radius: 12px; padding: 10px; display: none; min-width: 200px;
     }
     .nav-menu.open { display: flex; box-shadow: var(--shadow); }
+
+    .logo {
+        max-width: 100px;
+    }
   }
   
   /* same base as before — below are the only additions and tweaks for full responsiveness */
