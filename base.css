@@ -6,15 +6,15 @@
    Root Variables
 ----------------------------------------- */
 :root {
-    --bg: #e7b29a;            /* warm light pink/terracotta tint */
-    --paper: #feefe3;
-    --ink: #2f4150;
-    --muted: #6f91a7;
-    --accent: #a05f4e;        /* terracotta */
-    --accent-2: #596952;      /* sage green for secondary */
-    --line: #e2d6cf;
-    --shadow: 0 6px 28px rgba(47, 65, 80, 0.08);
-    --radius: 14px;
+    --bg: #dda68c;            /* warm light pink/terracotta tint */
+  --paper: #feefe3;
+  --ink: #000000;
+  --muted: #020303;
+  --accent: #BB5A4E;        /* terracotta */
+  --accent-2: #596952;      /* sage green for secondary */
+  --line: #e2d6cf;
+  --shadow: 0 6px 28px rgba(47, 65, 80, 0.08);
+  --radius: 14px;
   }
   
   /* -----------------------------------------

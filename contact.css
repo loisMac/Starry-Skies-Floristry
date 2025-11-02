@@ -1,8 +1,11 @@
-.contact-intro { padding-top: 16px; }
+.contact-intro { padding-top: 16px;
+text-align: center;
+padding-bottom: 20px; }
 .contact-intro h1 {
     font-family: "Caudex", serif;
   font-size: clamp(1.6rem, 2vw + 1rem, 2.2rem);
   margin: 0 0 8px;
+  text-align: center;
 }
 
 .contact-form {
