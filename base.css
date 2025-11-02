@@ -588,7 +588,7 @@ body {
 @media (max-width: 900px) {
     /* Adjust underline position & softness on mobile */
     .nav-link::after {
-      bottom: 2px; /* was 6px — lifts it closer to text */
+    bottom: 2px; /* was 6px — lifts it closer to text */
       width: 0%;
       height: 1.2px;
       background-color: color-mix(in srgb, var(--accent) 40%, transparent);
@@ -609,5 +609,67 @@ body {
     .nav-link {
       padding: 18px 20px;
     }
+  }
+  
+  /* ============================
+   MOBILE (<=900px): no underline, bold active
+============================ */
+@media (max-width: 900px) {
+    /* Remove underline pseudo on mobile completely */
+    .nav-link::after { content: none !important; }
+  
+    /* Tidy spacing so nothing overlaps */
+    .nav-link {
+      padding: 18px 20px;       /* comfy tap target */
+      line-height: 1.25;        /* keeps lines tight so no cross-outs */
+    }
+  
+    /* Active page: simple, readable emphasis */
+    .nav-link.is-active {
+      font-weight: 700;
+      color: var(--accent);
+      background: none !important;
+      box-shadow: none !important;
+    }
+  
+    /* Optional: soften hover bg a touch on mobile */
+    .nav-link:hover {
+      background: color-mix(in srgb, var(--paper) 92%, var(--bg) 8%);
+    }
+  }
+  
+  /* ============================
+     DESKTOP (>=901px): refined underline
+  ============================ */
+  @media (min-width: 901px) {
+    .nav-link {
+      position: relative;
+      text-decoration: none;
+      transition: color 0.25s ease;
+    }
+  
+    /* reset any highlights */
+    .nav-link.is-active,
+    .nav-link:hover {
+      background: none !important;
+      box-shadow: none !important;
+    }
+  
+    /* Underline lives only on desktop */
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: 6px;                /* sits neatly under text */
+      transform: translateX(-50%);
+      width: 0%;
+      height: 1.5px;
+      background-color: color-mix(in srgb, var(--accent) 65%, transparent);
+      border-radius: 12px;
+      transition: width 0.28s ease;
+    }
+  
+    .nav-link:hover::after { width: 60%; }
+    .nav-link.is-active::after { width: 60%; }
   }
   
