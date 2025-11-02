@@ -1,3 +1,10 @@
+/* =========================================================
+   STARRY SKIES FLORISTRY — BASE STYLES (clean final)
+   ========================================================= */
+
+/* -----------------------------------------
+   Root Variables
+----------------------------------------- */
 :root {
     --bg: #e7b29a;            /* warm light pink/terracotta tint */
     --paper: #feefe3;
@@ -10,48 +17,46 @@
     --radius: 14px;
   }
   
-  html[data-theme="dark"] {
-    --bg: #553d32;
-    --paper: #2d1a1d;
-    --ink: #e9e4de;
-    --muted: #b6c7d1;
-    --accent: #cf8c7a;
-    --accent-2: #9bb39a;
-    --line: #3b3532;
-    --shadow: 0 6px 28px rgba(0,0,0,0.35);
-  }
-  
+  /* -----------------------------------------
+     Base Elements
+  ----------------------------------------- */
   * { box-sizing: border-box; }
   
-  html, body {
-    height: 100%;
-  }
+  html, body { height: 100%; }
   
   body {
     margin: 0;
     background: var(--bg);
     color: var(--ink);
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: 'Lucida Sans', 'Lucida Grande', Geneva, Verdana, sans-serif;
     line-height: 1.6;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
   }
-
-  /* -----------------------------------------------------
-   Global Headings (now using Caudex)
-   ----------------------------------------------------- */
-h1, h2, h3, h4, h5, h6 {
+  body.page-loaded {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Typography */
+  h1, h2, h3, h4, h5, h6 {
     font-family: "Caudex", serif;
     font-weight: 700;
-    font-style: normal;
     color: var(--ink);
     line-height: 1.25;
     margin-top: 0;
   }
-  
-  
-  img { max-width: 100%; display: block; border-radius: 12px; }
   a { color: var(--accent); text-decoration: none; }
   a:hover { text-decoration: underline; }
   
+  img {
+    max-width: 100%;
+    display: block;
+    border-radius: 12px;
+  }
+  
+  /* Containers */
   .container {
     width: min(1120px, 92vw);
     margin: 0 auto;
@@ -60,87 +65,55 @@ h1, h2, h3, h4, h5, h6 {
   
   /* Skip link */
   .skip-link {
-    position: absolute; left: -9999px; top: auto;
+    position: absolute;
+    left: -9999px;
+    top: auto;
   }
   .skip-link:focus {
-    left: 12px; top: 12px; background: var(--paper); color: var(--ink);
-    padding: 8px 12px; border-radius: 8px; box-shadow: var(--shadow);
+    left: 12px;
+    top: 12px;
+    background: var(--paper);
+    color: var(--ink);
+    padding: 8px 12px;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
   }
   
-  /* Header / Nav */
+  /* -----------------------------------------
+     Header / Navigation
+  ----------------------------------------- */
   .site-header {
     position: sticky;
     top: 0;
+    padding: 20px 20px;
     z-index: 1000;
     background: color-mix(in lab, var(--bg) 90%, var(--paper));
     border-bottom: 1px solid var(--line);
     backdrop-filter: blur(6px);
   }
   
-  /* Base nav layout */
+  /* Layout */
   .nav {
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
-    padding: 100px 40px;
-
+    padding: 100px 32px;
   }
   
-  /* Logo centered (desktop) */
+  /* Logo */
   .logo-link {
     position: absolute;
-   
+    left: 50%;
+    transform: translateX(-50%);
   }
-  
   .logo {
     max-width: 180px;
+    transition: transform 0.3s ease;
   }
+  .logo:hover { transform: scale(1.05); }
   
-  
-  /* Menu layout */
-  .nav-menu {
-    display: none;
-    flex-direction: column;
-    align-items: flex-start;
-    list-style: none;
-    background: color-mix(in srgb, var(--paper) 85%, var(--bg) 45%);
-    border-top: 1px solid color-mix(in srgb, var(--line) 70%, var(--bg) 30%);
-    box-shadow: 0 8px 30px rgba(47, 65, 80, 0.1);
-    border-radius: 0 0 var(--radius) var(--radius);
-    padding: 12px;
-    position: absolute;
-    top: 60px;
-    right: 24px;
-    box-shadow: var(--shadow);
-    min-width: 220px;
-    min-height: 100px;
-    z-index: 100;
-  }
-  
-  .nav-menu.open {
-    display: flex;
-  }
-  
-  .nav-link {
-    padding: 20px 12px;
-    border-radius: 8px;
-    color: var(--ink);
-    font-weight: 500;
-    width: 100%;
-  }
-  
-  .nav-link:hover {
-    background: var(--paper);
-    text-decoration: none;
-  }
-  
-  .nav-link.is-active {
-    background: var(--paper);
-    box-shadow: var(--shadow);
-  }
-  
-  /* Toggle button */
+  /* Hamburger Toggle */
   .nav-toggle {
     background: transparent;
     border: none;
@@ -155,10 +128,7 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 50%;
     transition: background 0.25s ease;
   }
-  
-  .nav-toggle:hover {
-    background: color-mix(in srgb, var(--paper) 80%, transparent);
-  }
+  .nav-toggle:hover { background: color-mix(in srgb, var(--paper) 80%, transparent); }
   
   .nav-toggle-bar {
     width: 24px;
@@ -166,9 +136,7 @@ h1, h2, h3, h4, h5, h6 {
     background: var(--ink);
     position: relative;
     border-radius: 2px;
-    transition: transform 0.3s ease;
   }
-  
   .nav-toggle-bar::before,
   .nav-toggle-bar::after {
     content: "";
@@ -178,20 +146,129 @@ h1, h2, h3, h4, h5, h6 {
     height: 2px;
     background: var(--ink);
     border-radius: 2px;
-    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  .nav-toggle-bar::before { top: -7px; }
+  .nav-toggle-bar::after { top: 7px; }
+  
+  /* -----------------------------------------
+     Dropdown Menu — shared mobile & desktop
+  ----------------------------------------- */
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+    list-style: none;
+    background: color-mix(in srgb, var(--paper) 92%, var(--bg) 8%);
+    border: 1px solid var(--line);
+    box-shadow: 0 6px 20px rgba(47, 65, 80, 0.15);
+    border-radius: var(--radius);
+    padding: 18px 0;
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 24px;
+    width: 240px;
+    z-index: 999;
+    animation: dropdownFade 0.25s ease forwards;
+    backdrop-filter: blur(8px);
+  }
+  .nav-menu.open { display: flex; }
+  
+  @keyframes dropdownFade {
+    from { opacity: 0; transform: translateY(-6px); }
+    to { opacity: 1; transform: translateY(0); }
   }
   
-  .nav-toggle-bar::before {
-    top: -7px;
+  /* Nav Links */
+  .nav-link {
+    position: relative;
+    display: block;
+    text-align: center;
+    color: var(--ink);
+    font-weight: 500;
+    font-size: 1rem;
+    padding: 14px 0;
+    transition: color 0.25s ease;
+    text-decoration: none !important; /* remove browser underline */
   }
   
-  .nav-toggle-bar::after {
-    top: 7px;
+  /* Underline hover/active (only this one) */
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 4px;
+    width: 0%;
+    height: 1.5px;
+    background: color-mix(in srgb, var(--accent) 60%, transparent);
+    border-radius: 10px;
+    transform: translateX(-50%);
+    transition: width 0.3s ease, background-color 0.3s ease;
+  }
+  .nav-link:hover::after {
+    width: 60%;
+    background: color-mix(in srgb, var(--accent-2) 60%, transparent);
+  }
+  .nav-link.is-active::after {
+    width: 60%;
+    background: color-mix(in srgb, var(--accent) 65%, transparent);
   }
   
+  /* Remove background highlight entirely */
+  .nav-link:hover,
+  .nav-link.is-active {
+    background: none !important;
+    box-shadow: none !important;
+  }
   
+  /* -----------------------------------------
+     Mobile Styles
+  ----------------------------------------- */
+  @media (max-width: 900px) {
+    .nav {
+      justify-content: center;
+      align-items: center;
+      padding: 60px 24px;
+    }
+    .logo { max-width: 140px; }
+    .nav-toggle { right: 16px; left: auto; }
   
-  /* Buttons */
+    /* Full-width dropdown for mobile */
+    .nav-menu {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      width: auto;
+      border: none;
+      border-bottom: 1px solid var(--line);
+      border-radius: 0 0 var(--radius) var(--radius);
+      padding: 100px 0 32px;
+    }
+  
+    /* Remove underline, bold active */
+    .nav-link::after { content: none !important; }
+    .nav-link.is-active {
+      font-weight: 700;
+      color: var(--accent);
+    }
+  }
+  
+  /* -----------------------------------------
+     Desktop Layout
+  ----------------------------------------- */
+  @media (min-width: 901px) {
+    .nav {
+      justify-content: center;
+      padding: 80px 48px;
+    }
+    .nav-toggle {
+      right: 24px;
+      left: auto;
+    }
+  }
+  
+  /* -----------------------------------------
+     Buttons
+  ----------------------------------------- */
   .btn {
     display: inline-block;
     padding: 12px 20px;
@@ -201,6 +278,7 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 600;
     box-shadow: var(--shadow);
     border: 1px solid color-mix(in lab, var(--accent) 80%, #000);
+    transition: transform 0.2s ease;
   }
   .btn:hover { transform: translateY(-1px); }
   .btn:active { transform: translateY(0); }
@@ -210,466 +288,30 @@ h1, h2, h3, h4, h5, h6 {
   }
   .text-link { font-weight: 600; }
   
-  /* Footer */
+  /* -----------------------------------------
+     Footer
+  ----------------------------------------- */
   .site-footer {
     border-top: 1px solid var(--line);
-    margin-top: 40px; padding-top: 24px; padding-bottom: 40px;
+    margin-top: 40px;
+    padding-top: 24px;
+    padding-bottom: 40px;
     color: color-mix(in lab, var(--ink) 80%, var(--muted));
+    text-align: center;
   }
   .small { font-size: 0.92rem; color: var(--muted); }
   
-  /* Utilities */
+  /* -----------------------------------------
+     Utilities
+  ----------------------------------------- */
   .ticks { list-style: none; padding: 0; margin: 12px 0 0; }
   .ticks li { padding-left: 26px; position: relative; }
   .ticks li::before {
-    content: "✓"; position: absolute; left: 0; top: 0; color: var(--accent-2);
-    font-weight: 700;
-  }
-  
-  /* Responsive */
-  @media (min-width: 901px) {
-    .nav {
-      justify-content: space-between;
-      padding: 100px 40px;
-    }
-  
-    .nav-toggle {
-      left: auto;
-      right: 24px;
-    }
-  
-    .nav-menu {
-      display: none;
-      position: absolute;
-      top: 70px;
-      right: 24px;
-   
-      background: color-mix(in srgb, var(--paper) 85%, var(--bg) 15%);
-        
-        box-shadow: 0 8px 30px rgba(47, 65, 80, 0.1);
-        border-radius: 0 0 var(--radius) var(--radius);
-      padding: 38px 30px;
-
-      min-width: 240px;
-      z-index: 100;
-      backdrop-filter: blur(6px);
-      animation: dropdownFade 0.25s ease forwards;
-    }
-  
-    @keyframes dropdownFade {
-      from { opacity: 0; transform: translateY(-5px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-  
-    .logo-link {
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-  
-    .logo {
-      max-width: 180px;
-      transition: transform 0.35s ease, filter 0.35s ease;
-    }
-  
-    .logo:hover {
-      transform: scale(1.05);
-      filter: brightness(1.05);
-    }
-  }
-  
-  
-  
-  /* same base as before — below are the only additions and tweaks for full responsiveness */
-
-.container {
-    width: min(1120px, 92vw);
-    margin: 0 auto;
-    padding: 24px 4vw;
-  }
-  
-  /* Responsive typography */
-  h1, h2, h3, h4 {
-    line-height: 1.2;
-    word-break: keep-all;
-  }
-  
-  /* Ensure images are not cut on mobile */
-  img, iframe {
-    max-width: 100%;
-    height: auto;
-  }
-  
-  /* Improve nav on mobile/tablet */
-  @media (max-width: 900px) {
-    .nav {
-        position: relative;
-        z-index: 1000;
-        padding: 40px 40px;
-        justify-content: center;
-        align-items: center;
-      }
-      
-  
-    .logo-link {
-      position: static;
-      transform: none;
-    }
-  
-    .logo {
-      max-width: 140px;
-    }
-  
-    .nav-toggle {
-      left: auto;
-      right: 16px;
-    }
-
-    .nav-menu {
-        display: none;
-        flex-direction: column;
-        align-items: center;
-        list-style: none;
-        position: absolute;
-        top: 100%; /* drops it below the navbar */
-        left: 0;
-        right: 0;
-        background: color-mix(in srgb, var(--paper) 85%, var(--bg) 15%);
-        border-top: 1px solid color-mix(in srgb, var(--line) 70%, var(--bg) 30%);
-        box-shadow: 0 8px 30px rgba(47, 65, 80, 0.1);
-        border-radius: 0 0 var(--radius) var(--radius);
-        padding: 20px 0;
-        z-index: 999;
-        animation: dropdownFade 0.25s ease forwards;
-        backdrop-filter: blur(6px);
-      }
-      
-      .nav-menu.open {
-        display: flex;
-      }
-      
-      .nav-link {
-        width: 100%;
-        text-align: center;
-        padding: 20px 20px;
-        color: var(--ink);
-        font-weight: 500;
-      }
-      
-      .nav-link:hover {
-        background: color-mix(in srgb, var(--paper) 90%, var(--bg) 10%);
-        text-decoration: none;
-      }
-      
-      @keyframes dropdownFade {
-        from { opacity: 0; transform: translateY(-6px); }
-        to { opacity: 1; transform: translateY(0); }
-      }
-      
-  }
-  
-
-  /* -----------------------------------------------------
-   Caudex Font Utilities
-   ----------------------------------------------------- */
-.caudex-regular {
-    font-family: "Caudex", serif;
-    font-weight: 400;
-    font-style: normal;
-  }
-  
-  .caudex-bold {
-    font-family: "Caudex", serif;
-    font-weight: 700;
-    font-style: normal;
-  }
-  
-  .caudex-regular-italic {
-    font-family: "Caudex", serif;
-    font-weight: 400;
-    font-style: italic;
-  }
-  
-  .caudex-bold-italic {
-    font-family: "Caudex", serif;
-    font-weight: 700;
-    font-style: italic;
-  }
-  
-  /* -----------------------------------------------------
-   Page Fade-In Animation
-   ----------------------------------------------------- */
-
-body {
-    opacity: 0;
-    transform: translateY(10px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-  }
-  
-  body.page-loaded {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  
-  /* -----------------------------------------
-   DESKTOP DROPDOWN — clean rounded look
------------------------------------------ */
-@media (min-width: 901px) {
-    .nav-menu {
-      top: calc(100% + 10px); /* drops it slightly below nav bar */
-      right: 24px;
-      background: color-mix(in srgb, var(--paper) 85%, var(--bg) 20%);
-      border: 1px solid color-mix(in srgb, var(--line) 75%, var(--bg) 25%);
-      border-radius: var(--radius);
-      padding: 18px 0;
-      box-shadow: 0 10px 40px rgba(47, 65, 80, 0.1);
-      backdrop-filter: blur(8px);
-      animation: dropdownFade 0.25s ease forwards;
-    }
-  
-    .nav-menu::before {
-      content: "";
-      position: absolute;
-      top: -10px;
-      right: 30px;
-      width: 14px;
-      height: 14px;
-      background: inherit;
-      transform: rotate(45deg);
-      border-top: 1px solid color-mix(in srgb, var(--line) 75%, var(--bg) 25%);
-      border-left: 1px solid color-mix(in srgb, var(--line) 75%, var(--bg) 25%);
-      z-index: -1;
-    }
-  
-    .nav-link {
-      padding: 10px 20px;
-      width: 100%;
-      color: var(--ink);
-      border-radius: 0;
-      transition: background 0.2s ease;
-    }
-  
-    .nav-link:hover {
-      background: color-mix(in srgb, var(--paper) 95%, var(--bg) 5%);
-    }
-  
-    /* Subtle animation for dropdown */
-    @keyframes dropdownFade {
-      from { opacity: 0; transform: translateY(-6px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-  }
-  
-  /* -----------------------------------------
-     MOBILE DROPDOWN — remove weird highlight
-  ----------------------------------------- */
-  @media (max-width: 900px) {
-    .nav-link.is-active {
-      background: none;
-      box-shadow: none;
-    }
-  
-    .nav-link:hover {
-      background: color-mix(in srgb, var(--paper) 90%, var(--bg) 10%);
-    }
-  }
-  
-  /* -----------------------------------------
-   CLEAN UNDERLINE HOVER EFFECT
------------------------------------------ */
-
-/* -----------------------------------------
-   REFINED UNDERLINE NAV EFFECT
------------------------------------------ */
-
-/* Base link styling */
-.nav-link {
-    position: relative;
-    color: var(--ink);
-    text-decoration: none;
-    transition: color 0.25s ease;
-  }
-  
-  /* Remove old highlights */
-  .nav-link.is-active,
-  .nav-link:hover {
-    background: none !important;
-    box-shadow: none !important;
-  }
-  
-  /* Underline setup */
-  .nav-link::after {
-    content: "";
+    content: "✓";
     position: absolute;
-    left: 50%;
-    bottom: 6px;
-    transform: translateX(-50%);
-    width: 0%;
-    height: 1.5px;
-    background-color: color-mix(in srgb, var(--accent) 70%, transparent);
-    border-radius: 10px;
-    transition: width 0.3s ease, background-color 0.3s ease;
-  }
-  
-  /* Hover underline — soft sage tone */
-  .nav-link:hover::after {
-    width: 60%;
-    background-color: color-mix(in srgb, var(--accent-2) 60%, transparent);
-  }
-  
-  /* Active page underline — soft terracotta tone */
-  .nav-link.is-active::after {
-    width: 60%;
-    background-color: color-mix(in srgb, var(--accent) 60%, transparent);
-  }
-  
-  /* -----------------------------------------
-   DESKTOP DROPDOWN — refined look
------------------------------------------ */
-@media (min-width: 901px) {
-    .nav-menu {
-      display: none;
-      position: absolute;
-      top: calc(100% + 16px);
-      right: 32px;
-      flex-direction: column;
-      align-items: flex-start;
-      background: color-mix(in srgb, var(--paper) 85%, var(--bg) 25%);
-      border: 1px solid color-mix(in srgb, var(--line) 60%, var(--bg) 40%);
-      border-radius: var(--radius);
-      padding: 24px 28px;
-      min-width: 260px;
-      box-shadow: 0 8px 30px rgba(47, 65, 80, 0.15);
-      backdrop-filter: blur(8px);
-      animation: dropdownFade 0.25s ease forwards;
-    }
-  
-    .nav-menu.open {
-      display: flex;
-    }
-  
-    /* remove pointer entirely */
-    .nav-menu::before {
-      display: none !important;
-    }
-  
-    .nav-link {
-      width: 100%;
-      padding: 12px 0;
-      color: var(--ink);
-      font-size: 1rem;
-      letter-spacing: 0.02em;
-      transition: color 0.2s ease;
-    }
-  
-    .nav-link + .nav-link {
-      border-top: 1px solid color-mix(in srgb, var(--line) 60%, transparent);
-    }
-  
-    .nav-link:hover {
-      color: var(--accent);
-    }
-  
-    @keyframes dropdownFade {
-      from {
-        opacity: 0;
-        transform: translateY(-6px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-  }
-  
-  /* -----------------------------------------
-   FIX MOBILE UNDERLINE OVERLAP
------------------------------------------ */
-@media (max-width: 900px) {
-    /* Adjust underline position & softness on mobile */
-    .nav-link::after {
-    bottom: 2px; /* was 6px — lifts it closer to text */
-      width: 0%;
-      height: 1.2px;
-      background-color: color-mix(in srgb, var(--accent) 40%, transparent);
-      transition: width 0.25s ease, background-color 0.3s ease;
-    }
-  
-    .nav-link:hover::after {
-      width: 50%;
-      background-color: color-mix(in srgb, var(--accent-2) 40%, transparent);
-    }
-  
-    .nav-link.is-active::after {
-      width: 50%;
-      background-color: color-mix(in srgb, var(--accent) 45%, transparent);
-    }
-  
-    /* Slightly increase space between items to prevent overlap */
-    .nav-link {
-      padding: 18px 20px;
-    }
-  }
-  
-  /* ============================
-   MOBILE (<=900px): no underline, bold active
-============================ */
-@media (max-width: 900px) {
-    /* Remove underline pseudo on mobile completely */
-    .nav-link::after { content: none !important; }
-  
-    /* Tidy spacing so nothing overlaps */
-    .nav-link {
-      padding: 18px 20px;       /* comfy tap target */
-      line-height: 1.25;        /* keeps lines tight so no cross-outs */
-    }
-  
-    /* Active page: simple, readable emphasis */
-    .nav-link.is-active {
-      font-weight: 700;
-      color: var(--accent);
-      background: none !important;
-      box-shadow: none !important;
-    }
-  
-    /* Optional: soften hover bg a touch on mobile */
-    .nav-link:hover {
-      background: color-mix(in srgb, var(--paper) 92%, var(--bg) 8%);
-    }
-  }
-  
-  /* ============================
-     DESKTOP (>=901px): refined underline
-  ============================ */
-  @media (min-width: 901px) {
-    .nav-link {
-      position: relative;
-      text-decoration: none;
-      transition: color 0.25s ease;
-    }
-  
-    /* reset any highlights */
-    .nav-link.is-active,
-    .nav-link:hover {
-      background: none !important;
-      box-shadow: none !important;
-    }
-  
-    /* Underline lives only on desktop */
-    .nav-link::after {
-      content: "";
-      position: absolute;
-      left: 50%;
-      bottom: 6px;                /* sits neatly under text */
-      transform: translateX(-50%);
-      width: 0%;
-      height: 1.5px;
-      background-color: color-mix(in srgb, var(--accent) 65%, transparent);
-      border-radius: 12px;
-      transition: width 0.28s ease;
-    }
-  
-    .nav-link:hover::after { width: 60%; }
-    .nav-link.is-active::after { width: 60%; }
+    left: 0;
+    top: 0;
+    color: var(--accent-2);
+    font-weight: 700;
   }
   
