@@ -22,6 +22,7 @@
         });
       </script>
       
+
   </head>
 
   <body>
@@ -142,21 +143,8 @@
       <p class="small">Website built by <a href="https://loismakeswebsites.co.uk" target="_blank">loismakeswebsites</a>.</p>
     </footer>
 
-    <script>
-        window.addEventListener('DOMContentLoaded', () => {
-          const yearEl = document.getElementById('year');
-          if (yearEl) yearEl.textContent = new Date().getFullYear();
-      
-          const navToggle = document.querySelector('.nav-toggle');
-          const navMenu = document.getElementById('navMenu');
-          if (navToggle && navMenu) {
-            navToggle.addEventListener('click', () => {
-              const open = navMenu.classList.toggle('open');
-              navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-            });
-          }
-        });
-      </script>
-      
+   
+      <script src="script.js" defer></script>
+
   </body>
 </html>

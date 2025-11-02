@@ -123,7 +123,7 @@ h1, h2, h3, h4, h5, h6 {
   }
   
   .nav-link {
-    padding: 10px 12px;
+    padding: 20px 12px;
     border-radius: 8px;
     color: var(--ink);
     font-weight: 500;
@@ -351,7 +351,7 @@ h1, h2, h3, h4, h5, h6 {
       .nav-link {
         width: 100%;
         text-align: center;
-        padding: 12px 20px;
+        padding: 20px 20px;
         color: var(--ink);
         font-weight: 500;
       }
@@ -409,5 +409,205 @@ body {
   body.page-loaded {
     opacity: 1;
     transform: translateY(0);
+  }
+  
+  /* -----------------------------------------
+   DESKTOP DROPDOWN — clean rounded look
+----------------------------------------- */
+@media (min-width: 901px) {
+    .nav-menu {
+      top: calc(100% + 10px); /* drops it slightly below nav bar */
+      right: 24px;
+      background: color-mix(in srgb, var(--paper) 85%, var(--bg) 20%);
+      border: 1px solid color-mix(in srgb, var(--line) 75%, var(--bg) 25%);
+      border-radius: var(--radius);
+      padding: 18px 0;
+      box-shadow: 0 10px 40px rgba(47, 65, 80, 0.1);
+      backdrop-filter: blur(8px);
+      animation: dropdownFade 0.25s ease forwards;
+    }
+  
+    .nav-menu::before {
+      content: "";
+      position: absolute;
+      top: -10px;
+      right: 30px;
+      width: 14px;
+      height: 14px;
+      background: inherit;
+      transform: rotate(45deg);
+      border-top: 1px solid color-mix(in srgb, var(--line) 75%, var(--bg) 25%);
+      border-left: 1px solid color-mix(in srgb, var(--line) 75%, var(--bg) 25%);
+      z-index: -1;
+    }
+  
+    .nav-link {
+      padding: 10px 20px;
+      width: 100%;
+      color: var(--ink);
+      border-radius: 0;
+      transition: background 0.2s ease;
+    }
+  
+    .nav-link:hover {
+      background: color-mix(in srgb, var(--paper) 95%, var(--bg) 5%);
+    }
+  
+    /* Subtle animation for dropdown */
+    @keyframes dropdownFade {
+      from { opacity: 0; transform: translateY(-6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  }
+  
+  /* -----------------------------------------
+     MOBILE DROPDOWN — remove weird highlight
+  ----------------------------------------- */
+  @media (max-width: 900px) {
+    .nav-link.is-active {
+      background: none;
+      box-shadow: none;
+    }
+  
+    .nav-link:hover {
+      background: color-mix(in srgb, var(--paper) 90%, var(--bg) 10%);
+    }
+  }
+  
+  /* -----------------------------------------
+   CLEAN UNDERLINE HOVER EFFECT
+----------------------------------------- */
+
+/* -----------------------------------------
+   REFINED UNDERLINE NAV EFFECT
+----------------------------------------- */
+
+/* Base link styling */
+.nav-link {
+    position: relative;
+    color: var(--ink);
+    text-decoration: none;
+    transition: color 0.25s ease;
+  }
+  
+  /* Remove old highlights */
+  .nav-link.is-active,
+  .nav-link:hover {
+    background: none !important;
+    box-shadow: none !important;
+  }
+  
+  /* Underline setup */
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 6px;
+    transform: translateX(-50%);
+    width: 0%;
+    height: 1.5px;
+    background-color: color-mix(in srgb, var(--accent) 70%, transparent);
+    border-radius: 10px;
+    transition: width 0.3s ease, background-color 0.3s ease;
+  }
+  
+  /* Hover underline — soft sage tone */
+  .nav-link:hover::after {
+    width: 60%;
+    background-color: color-mix(in srgb, var(--accent-2) 60%, transparent);
+  }
+  
+  /* Active page underline — soft terracotta tone */
+  .nav-link.is-active::after {
+    width: 60%;
+    background-color: color-mix(in srgb, var(--accent) 60%, transparent);
+  }
+  
+  /* -----------------------------------------
+   DESKTOP DROPDOWN — refined look
+----------------------------------------- */
+@media (min-width: 901px) {
+    .nav-menu {
+      display: none;
+      position: absolute;
+      top: calc(100% + 16px);
+      right: 32px;
+      flex-direction: column;
+      align-items: flex-start;
+      background: color-mix(in srgb, var(--paper) 85%, var(--bg) 25%);
+      border: 1px solid color-mix(in srgb, var(--line) 60%, var(--bg) 40%);
+      border-radius: var(--radius);
+      padding: 24px 28px;
+      min-width: 260px;
+      box-shadow: 0 8px 30px rgba(47, 65, 80, 0.15);
+      backdrop-filter: blur(8px);
+      animation: dropdownFade 0.25s ease forwards;
+    }
+  
+    .nav-menu.open {
+      display: flex;
+    }
+  
+    /* remove pointer entirely */
+    .nav-menu::before {
+      display: none !important;
+    }
+  
+    .nav-link {
+      width: 100%;
+      padding: 12px 0;
+      color: var(--ink);
+      font-size: 1rem;
+      letter-spacing: 0.02em;
+      transition: color 0.2s ease;
+    }
+  
+    .nav-link + .nav-link {
+      border-top: 1px solid color-mix(in srgb, var(--line) 60%, transparent);
+    }
+  
+    .nav-link:hover {
+      color: var(--accent);
+    }
+  
+    @keyframes dropdownFade {
+      from {
+        opacity: 0;
+        transform: translateY(-6px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  }
+  
+  /* -----------------------------------------
+   FIX MOBILE UNDERLINE OVERLAP
+----------------------------------------- */
+@media (max-width: 900px) {
+    /* Adjust underline position & softness on mobile */
+    .nav-link::after {
+      bottom: 2px; /* was 6px — lifts it closer to text */
+      width: 0%;
+      height: 1.2px;
+      background-color: color-mix(in srgb, var(--accent) 40%, transparent);
+      transition: width 0.25s ease, background-color 0.3s ease;
+    }
+  
+    .nav-link:hover::after {
+      width: 50%;
+      background-color: color-mix(in srgb, var(--accent-2) 40%, transparent);
+    }
+  
+    .nav-link.is-active::after {
+      width: 50%;
+      background-color: color-mix(in srgb, var(--accent) 45%, transparent);
+    }
+  
+    /* Slightly increase space between items to prevent overlap */
+    .nav-link {
+      padding: 18px 20px;
+    }
   }
   
