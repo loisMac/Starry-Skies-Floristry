@@ -45,6 +45,7 @@
   /* Intro text beside collage */
   .intro {
     max-width: 520px;
+    text-align: center;
   }
   
   .intro h1 {
