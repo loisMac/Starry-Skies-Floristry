@@ -218,6 +218,43 @@
     background: none !important;
     box-shadow: none !important;
   }
+  /* -----------------------------------------
+   Instagram Icon (Navbar)
+----------------------------------------- */
+.nav-instagram {
+    position: absolute;
+    left: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    transition: transform 0.25s ease, background 0.25s ease;
+  }
+  
+  .instagram-icon {
+    width: 30px;
+    height: 30px;
+    opacity: 0.65;
+    transition: opacity 0.25s ease;
+  }
+  
+  .nav-instagram:hover {
+    transform: scale(1.1);
+  }
+  
+  .nav-instagram:hover .instagram-icon {
+    opacity: 1;
+  }
+  
+  /* Ensure spacing on small screens */
+  @media (max-width: 900px) {
+    .nav-instagram {
+      left: 16px;
+    }
+  }
+  
   
   /* -----------------------------------------
      Mobile Styles
