@@ -88,7 +88,7 @@
     padding: 20px 20px;
     z-index: 1000;
     background: color-mix(in lab, var(--bg) 90%, var(--paper));
-    border-bottom: 1px solid var(--line);
+    border-bottom: 2px solid var(--line);
     backdrop-filter: blur(6px);
   }
   
