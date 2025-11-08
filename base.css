@@ -227,7 +227,7 @@
     left: 24px;
     display: flex;
     align-items: center;
-    gap: 12px; /* space between icons */
+    gap: 8px; /* space between icons */
   }
   
   /* Individual icons */
@@ -259,7 +259,7 @@
   @media (max-width: 900px) {
     .nav-social {
       left: 16px;
-      gap: 10px;
+      gap: 6px;
     }
   }
   
