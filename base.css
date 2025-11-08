@@ -221,39 +221,48 @@
   /* -----------------------------------------
    Instagram Icon (Navbar)
 ----------------------------------------- */
-.nav-instagram {
+/* Social icons group */
+.nav-social {
     position: absolute;
     left: 24px;
     display: flex;
     align-items: center;
+    gap: 12px; /* space between icons */
+  }
+  
+  /* Individual icons */
+  .nav-social a {
+    display: flex;
+    align-items: center;
     justify-content: center;
-    width: 45px;
-    height: 45px;
+    width: 42px;
+    height: 42px;
     border-radius: 50%;
     transition: transform 0.25s ease, background 0.25s ease;
   }
   
-  .instagram-icon {
-    width: 30px;
-    height: 30px;
+  .nav-social img {
+    width: 26px;
+    height: 26px;
     opacity: 0.65;
     transition: opacity 0.25s ease;
   }
   
-  .nav-instagram:hover {
+  .nav-social a:hover img {
+    opacity: 1;
+  }
+  .nav-social a:hover {
     transform: scale(1.1);
   }
   
-  .nav-instagram:hover .instagram-icon {
-    opacity: 1;
-  }
-  
-  /* Ensure spacing on small screens */
+  /* mobile tweak */
   @media (max-width: 900px) {
-    .nav-instagram {
+    .nav-social {
       left: 16px;
+      gap: 10px;
     }
   }
+  
   
   
   /* -----------------------------------------
