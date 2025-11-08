@@ -1,132 +1,171 @@
-.contact-intro { padding-top: 16px;
-text-align: center;
-padding-bottom: 20px; }
-.contact-intro h1 {
-    font-family: "Caudex", serif;
-  font-size: clamp(1.6rem, 2vw + 1rem, 2.2rem);
-  margin: 0 0 8px;
-  text-align: center;
-}
-
-.contact-form {
-  margin-top: 12px;
-  background: var(--paper);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: 18px;
-  box-shadow: var(--shadow);
-}
-
-.field { margin-bottom: 14px; }
-.field label {
-  display: block;
-  font-weight: 600;
-  margin-bottom: 6px;
-  letter-spacing: 0.02em;
-}
-
-input, textarea, select {
-  width: 100%;
-  padding: 12px 14px;
-  border: 1px solid var(--line);
-  border-radius: 10px;
-  background: #fff;
-  color: #222;
-  font-family: inherit;
-  font-size: 1rem;
-  transition: background-color .3s, color .3s, border-color .3s;
-}
-
-html[data-theme="dark"] input,
-html[data-theme="dark"] textarea,
-html[data-theme="dark"] select {
-  background: #1c1a19;
-  color: var(--ink);
-  border-color: #3a3330;
-}
-
-input:focus, textarea:focus, select:focus { outline: 2px solid color-mix(in lab, var(--accent) 50%, transparent); }
-
-.two-col {
-  display: grid; gap: 12px;
-  grid-template-columns: 1fr 1fr;
-}
-
-details summary {
-  cursor: pointer;
-  font-weight: 600;
-  list-style: none;
-}
-details summary::-webkit-details-marker { display: none; }
-
-@media (max-width: 760px) {
-  .two-col { grid-template-columns: 1fr; }
-}
-
-
 /* -----------------------------------------------------
-   Connect Section
+   Contact Page — Starry Skies Floristry
 ----------------------------------------------------- */
 
-.contact-connect {
+.contact-intro {
+    padding: 16px 0 20px;
     text-align: center;
-    margin-top: 60px;
-    padding-bottom: 60px;
   }
-  
-  .contact-connect h2 {
+  .contact-intro h1 {
     font-family: "Caudex", serif;
-    font-weight: 700;
-    font-size: clamp(1.4rem, 1.8vw + 1rem, 1.8rem);
-    margin-bottom: 10px;
+    font-size: clamp(1.6rem, 2vw + 1rem, 2.2rem);
+    margin: 0 0 8px;
+  }
+  .contact-intro p {
+    margin: 0;
   }
   
-  .contact-connect p {
-    font-size: 1.05rem;
+  .contact-form {
+    margin-top: 12px;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 18px;
+    box-shadow: var(--shadow);
+  }
+  
+  /* form fields */
+  .field { margin-bottom: 14px; }
+  .field label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 6px;
+    letter-spacing: 0.02em;
+  }
+  .field small,
+  .helper {
+    display: block;
+    color: var(--muted);
+    margin-top: 6px;
+    line-height: 1.4;
+    font-size: 0.95rem;
+  }
+  
+  input, textarea, select {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: #fff;
+    color: #222;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: background-color .3s, color .3s, border-color .3s, box-shadow .2s;
+  }
+  input:focus, textarea:focus, select:focus {
+    outline: 0;
+    box-shadow: 0 0 0 3px color-mix(in lab, var(--accent) 30%, transparent);
+    border-color: color-mix(in lab, var(--accent) 40%, var(--line));
+  }
+  
+  html[data-theme="dark"] input,
+  html[data-theme="dark"] textarea,
+  html[data-theme="dark"] select {
+    background: #1c1a19;
     color: var(--ink);
-    margin-bottom: 28px;
+    border-color: #3a3330;
   }
   
+  /* 2-col utility */
+  .two-col {
+    display: grid;
+    gap: 12px;
+    grid-template-columns: 1fr 1fr;
+  }
+  @media (max-width: 760px) {
+    .two-col { grid-template-columns: 1fr; }
+  }
+  
+  /* checkbox grid (wish list) */
+  .check-group {
+    background: color-mix(in srgb, var(--paper) 96%, var(--bg) 4%);
+    border: 1px dashed color-mix(in srgb, var(--line) 80%, transparent);
+    border-radius: 12px;
+    padding: 14px;
+  }
+  .check-group legend {
+    font-weight: 700;
+    margin-bottom: 8px;
+    font-family: "Caudex", serif;
+  }
+  .checkbox-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 14px;
+  }
+  @media (max-width: 760px) {
+    .checkbox-grid { grid-template-columns: 1fr; }
+  }
+  /* Improved checkbox alignment */
+.checkbox-item {
+    display: flex;
+    align-items: flex-start; /* ✅ aligns checkbox with top of text */
+    gap: 10px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 10px 12px;
+  }
+  
+  .checkbox-item input[type="checkbox"] {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    margin-top: 3px; /* ✅ fine-tune vertical alignment */
+    accent-color: color-mix(in srgb, var(--accent) 70%, var(--accent-2) 30%);
+    cursor: pointer;
+  }
+  
+  .checkbox-item label {
+    font-weight: 500;
+    line-height: 1.4;
+    cursor: pointer;
+    display: inline-block;
+    flex: 1;
+  }
+  
+  
+  /* inline quantity inputs (shown when relevant boxes ticked) */
+  .qty-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 220px));
+    gap: 10px;
+    margin-top: 10px;
+  }
+  @media (max-width: 760px) {
+    .qty-row { grid-template-columns: 1fr; }
+  }
+  .qty-inline {
+    display: grid;
+    grid-template-columns: 1fr 100px;
+    gap: 8px;
+    align-items: center;
+  }
+  .qty-inline input[type="number"] {
+    width: 100%;
+  }
+  
+  /* “check junk mail” notice + helper under submit */
+  .notice {
+    background: color-mix(in srgb, var(--paper) 92%, var(--bg) 8%);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 10px 12px;
+    margin: 10px 0 0;
+    font-size: 0.98rem;
+    color: var(--ink);
+  }
+  
+  /* connect section */
+  .contact-connect {
+    text-align: center;
+    margin: 28px 0 0;
+  }
   .connect-links {
     display: flex;
+    gap: 10px;
     justify-content: center;
-    gap: 20px;
     flex-wrap: wrap;
   }
-  
-  .social-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background: var(--accent);
-    color: #fff;
-    font-weight: 600;
-    border-radius: 40px;
-    padding: 12px 24px;
-    text-decoration: none;
-    transition: transform 0.25s ease, background 0.25s ease;
-  }
-  
-  .social-btn:hover {
-    transform: translateY(-2px);
-    background: color-mix(in srgb, var(--accent) 85%, white 15%);
-  }
-  
-  .social-btn img {
-    height: 20px;
-    width: 20px;
-  }
-  
-  @media (max-width: 600px) {
-    .connect-links {
-      flex-direction: column;
-      align-items: center;
-      gap: 14px;
-    }
-  
-    .social-btn {
-      width: 85%;
-      justify-content: center;
-    }
-  }
+  .social-btn { min-width: 220px; }
   

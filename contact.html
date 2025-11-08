@@ -1,163 +1,215 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Starry Skies Floristry</title>
-      
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Caudex:ital,wght@0,400;0,700;1,400;1,700&family=Dosis:wght@400;500;600&family=Gaegu:wght@400;700&display=swap" rel="stylesheet">
-        
-        <link rel="stylesheet" href="base.css" />
-        <!-- then your page-specific CSS -->
-        <link rel="stylesheet" href="contact.css" />
-        <script>
-            window.addEventListener("load", () => {
-              document.body.classList.add("page-loaded");
-            });
-          </script>
-          
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Starry Skies Floristry</title>
 
-      </head>
-      
-<body>
-  <a class="skip-link" href="#main">Skip to content</a>
-  <header class="site-header">
-    <nav class="nav">
-        <a href="https://www.instagram.com/starryskiesfloristry" 
-        class="nav-instagram" 
-        target="_blank" 
-        aria-label="Starry Skies Floristry Instagram">
-       <img src="img/instagram-brands-solid-full.svg" alt="Instagram" class="instagram-icon">
-     </a>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caudex:ital,wght@0,400;0,700;1,400;1,700&family=Dosis:wght@400;500;600&family=Gaegu:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="base.css" />
+    <link rel="stylesheet" href="contact.css" />
+    <script>
+      window.addEventListener("load", () => {
+        document.body.classList.add("page-loaded");
+      });
+    </script>
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <nav class="nav">
+        <a
+          href="https://www.instagram.com/starryskiesfloristry"
+          class="nav-instagram"
+          target="_blank"
+          aria-label="Starry Skies Floristry Instagram"
+        >
+          <img src="img/instagram-brands-solid-full.svg" alt="Instagram" class="instagram-icon">
+        </a>
+
         <a href="index.html" class="logo-link" aria-label="Starry Skies Floristry home">
-            <img src="img/logo.png" alt="Starry Skies Floristry logo" class="logo">
-          </a>
-          
-      <button class="nav-toggle" aria-expanded="false" aria-controls="navMenu" aria-label="Open menu">
-        <span class="nav-toggle-bar"></span>
-      </button>
-      <ul id="navMenu" class="nav-menu">
-        <li><a class="nav-link" href="index.html">Home</a></li>
-        <li><a class="nav-link" href="about.html">About</a></li>
-        <li><a class="nav-link" href="weddings.html">Weddings</a></li>
-        <li><a class="nav-link is-active" href="contact.html">Contact</a></li>
-        <li><a class="nav-link" href ="testimonials.html">Testimonials</a></li>
-        <li><a class="nav-link" href="shop.html">The Shop</a></li>
+          <img src="img/logo.png" alt="Starry Skies Floristry logo" class="logo">
+        </a>
 
-      </ul>
-    </nav>
-  </header>
+        <button class="nav-toggle" aria-expanded="false" aria-controls="navMenu" aria-label="Open menu">
+          <span class="nav-toggle-bar"></span>
+        </button>
 
-  <main id="main" class="container">
-    <section class="contact-intro">
-      <h1>Tell us about your day</h1>
-      <p>We’ll get back with availability and a friendly starting guide. No pressure, just possibilities.</p>
-    </section>
+        <ul id="navMenu" class="nav-menu">
+          <li><a class="nav-link" href="index.html">Home</a></li>
+          <li><a class="nav-link" href="about.html">About</a></li>
+          <li><a class="nav-link" href="weddings.html">Weddings</a></li>
+          <li><a class="nav-link is-active" href="contact.html">Contact</a></li>
+          <li><a class="nav-link" href="testimonials.html">Testimonials</a></li>
+          <li><a class="nav-link" href="shop.html">The Shop</a></li>
+        </ul>
+      </nav>
+    </header>
 
-    <!-- Formspree: replace action with your endpoint -->
-    <form class="contact-form" action="https://formspree.io/f/your-endpoint" method="POST">
-      <div class="field">
-        <label for="name">Your name</label>
-        <input id="name" name="name" type="text" autocomplete="name" required />
-      </div>
+    <main id="main" class="container">
+      <section class="contact-intro">
+        <h1>Tell us about your day</h1>
+        <p>We’ll get back with availability and a friendly starting guide. No pressure, just possibilities.</p>
+      </section>
 
-      <div class="field two-col">
-        <div>
-          <label for="email">Email</label>
-          <input id="email" name="_replyto" type="email" autocomplete="email" required />
+      <!-- Formspree endpoint: swap if needed -->
+      <form class="contact-form" action="https://formspree.io/f/xrbrzpqg" method="POST">
+        <!-- Names / Phone -->
+        <div class="field">
+          <label for="names">Names</label>
+          <input id="names" name="Names" type="text" required />
         </div>
-        <div>
-          <label for="phone">Phone (optional)</label>
-          <input id="phone" name="phone" type="tel" autocomplete="tel" />
-        </div>
-      </div>
 
-      <div class="field two-col">
-        <div>
-          <label for="date">Wedding date</label>
-          <input id="date" name="wedding_date" type="date" required />
-        </div>
-        <div>
-          <label for="venue">Venue</label>
-          <input id="venue" name="venue" type="text" placeholder="e.g. Pollok House, Glasgow" />
-        </div>
-      </div>
-
-      <div class="field two-col">
-        <div>
-          <label for="budget">Approx. budget</label>
-          <select id="budget" name="budget" required>
-            <option value="" disabled selected>Select one</option>
-            <option>£500–£1,000 (intimate)</option>
-            <option>£1,000–£2,000</option>
-            <option>£2,000–£3,500</option>
-            <option>£3,500–£5,000</option>
-            <option>£5,000+ (full florals)</option>
-          </select>
-        </div>
-        <div>
-          <label for="vibe">Your vibe</label>
-          <select id="vibe" name="vibe" required>
-            <option value="" disabled selected>Select one</option>
-            <option>Soft & romantic</option>
-            <option>Modern & minimal</option>
-            <option>Wild garden</option>
-            <option>Colour-pop</option>
-            <option>Classic & timeless</option>
-          </select>
-        </div>
-      </div>
-
-      <details class="field">
-        <summary>Optional details</summary>
         <div class="field two-col">
           <div>
-            <label for="party">Bridal party size</label>
-            <input id="party" name="party_size" type="number" min="0" placeholder="e.g. 4" />
+            <label for="email">Email</label>
+            <input id="email" name="_replyto" type="email" autocomplete="email" required />
           </div>
           <div>
-            <label for="palette">Colours / palette</label>
-            <input id="palette" name="palette" type="text" placeholder="e.g. terracotta, blush, creams" />
+            <label for="tel">Tel Number</label>
+            <input id="tel" name="Telephone" type="tel" autocomplete="tel" />
           </div>
         </div>
-      </details>
 
-      <div class="field">
-        <label for="message">Anything else?</label>
-        <textarea id="message" name="message" rows="6" placeholder="Tell us about your ceremony, reception, must-haves…"></textarea>
-      </div>
+        <!-- Date / Venues -->
+        <div class="field two-col">
+          <div>
+            <label for="wedding-date">Date of wedding</label>
+            <input id="wedding-date" name="Wedding date" type="date" required />
+          </div>
+          <div>
+            <label for="venues">Venue(s)</label>
+            <input id="venues" name="Venues" type="text" placeholder="e.g. Ceremony at..., Reception at..." />
+          </div>
+        </div>
 
-      <!-- Netlify spam honeypot (works fine with Formspree too) -->
-      <input type="text" name="_gotcha" style="display:none" />
+        <!-- Other suppliers -->
+        <div class="field">
+          <label for="suppliers">Other suppliers?</label>
+          <input id="suppliers" name="Other suppliers" type="text" placeholder="e.g. photographer, stylists, etc."/>
+        </div>
 
-      <button class="btn" type="submit">Send enquiry</button>
-      <p class="small">We’ll reply within 2–3 working days.</p>
-    </form>
-    <section class="contact-connect">
+        <!-- Vibe / Budget dropdowns -->
+        <div class="field two-col">
+          <div>
+            <label for="vibe">Vibe?</label>
+            <select id="vibe" name="Vibe" required>
+              <option value="" disabled selected>Select one</option>
+              <option>Contemporary</option>
+              <option>Bohemian</option>
+              <option>Wild and romantic</option>
+              <option>Garden style</option>
+              <option>Unsure yet</option>
+            </select>
+            <small>Don’t worry—this just helps us start. We’ll refine the details together.</small>
+          </div>
+
+          <div>
+            <label for="budget">Budget?</label>
+            <select id="budget" name="Budget" required>
+              <option value="" disabled selected>Select one</option>
+              <option>£1000 – £2000</option>
+              <option>£2000 – £3000</option>
+              <option>£3000+</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Wish list with multiple select + quantities -->
+        <fieldset class="field check-group">
+          <legend>What arrangements are on your floral wish list?</legend>
+          <div class="checkbox-grid">
+            <div class="checkbox-item">
+              <input type="checkbox" id="wl-party" name="Wish list[]" value="Wedding party flowers" />
+              <label for="wl-party">Wedding party flowers </br>(bridal bouquet, bridesmaids, buttonholes, etc.)</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="wl-aisle" name="Wish list[]" value="Aisle decor" />
+              <label for="wl-aisle">Aisle decor</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="wl-backdrops" name="Wish list[]" value="Ceremony back drops (arches, floor pieces, plinths)" />
+              <label for="wl-backdrops">Ceremony back drops (arches, floor pieces, plinths)</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="wl-tables" name="Wish list[]" value="Table pieces" />
+              <label for="wl-tables">Table pieces</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="wl-hanging" name="Wish list[]" value="Hanging installations" />
+              <label for="wl-hanging">Hanging installations</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="wl-walls" name="Wish list[]" value="Wall or canopy flowers and foliage" />
+              <label for="wl-walls">Wall or canopy flowers and foliage</label>
+            </div>
+          </div>
+
+          <!-- Optional quantity fields for the common countables -->
+          <div id="qtyWrap" class="qty-row" hidden>
+            <div class="qty-inline">
+              <label for="qty-bridesmaids">Bridesmaids (qty)</label>
+              <input id="qty-bridesmaids" name="Bridesmaids qty" type="number" min="0" inputmode="numeric" />
+            </div>
+            <div class="qty-inline">
+              <label for="qty-buttonholes">Buttonholes (qty)</label>
+              <input id="qty-buttonholes" name="Buttonholes qty" type="number" min="0" inputmode="numeric" />
+            </div>
+          </div>
+          <small class="helper">Tick all that apply. You can add quantities for bridesmaids or buttonholes if helpful. 
+          </br>This isn't an exhaustive list but will help give us an idea of your vision.</small>
+        </fieldset>
+
+        <!-- Any other info -->
+        <div class="field">
+          <label for="message">Any other info?</label>
+          <textarea id="message" name="Any other info" rows="6" ></textarea>
+        </div>
+
+        <!-- Spam honeypot -->
+        <input type="text" name="_gotcha" style="display:none" />
+
+        <button class="btn" type="submit">Send enquiry</button>
+        <p class="notice">Please check your junk/spam folder if you don’t hear back within a few days.</p>
+      </form>
+
+      <section class="contact-connect">
         <h2>Connect with us</h2>
-        <p>Prefer to chat another way? you can find us on instagram or drop us an email — we’d love to hear from you.</p>
-      
+        <p>Prefer to chat another way? Find us on Instagram or drop us an email — we’d love to hear from you.</p>
         <div class="connect-links">
           <a href="https://www.instagram.com/starryskiesfloristry" target="_blank" rel="noopener" class="btn social-btn instagram">
             @starryskiesfloristry
           </a>
-      
           <a href="mailto:hello@starryskiesfloristry.co.uk" target="_blank" class="btn social-btn email">
             Send an email
           </a>
         </div>
       </section>
-      
-      
-  </main>
+    </main>
 
-  <footer class="site-footer container">
-    <p>© <span id="year"></span> Starry Skies Floristry · Glasgow</p>
-    <p class="small">Website built by <a href="https://loismakeswebsites.co.uk" target="_blank">loismakeswebsites</a>.</p>
-  </footer>
+    <footer class="site-footer container">
+      <p>© <span id="year"></span> Starry Skies Floristry · Glasgow</p>
+      <p class="small">Website built by <a href="https://loismakeswebsites.co.uk" target="_blank">loismakeswebsites</a>.</p>
+    </footer>
 
-  <script src="script.js" defer></script>
-</body>
+    <!-- your site-wide script -->
+    <script src="script.js" defer></script>
+
+    <!-- tiny inline script to show/hide quantities when party flowers is checked -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const party = document.getElementById('wl-party');
+        const qtyWrap = document.getElementById('qtyWrap');
+        if (!party || !qtyWrap) return;
+        const toggleQty = () => qtyWrap.hidden = !party.checked;
+        party.addEventListener('change', toggleQty);
+        toggleQty();
+      });
+    </script>
+  </body>
 </html>
